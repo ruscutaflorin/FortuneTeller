@@ -1,6 +1,7 @@
 import React from "react";
 import "./Home.css";
 import {useNavigate} from "react-router-dom";
+import ChatPopUp from "../../components/ChatPopUp/ChatPopUp";
 
 function Home() {
     let navigate = useNavigate();
@@ -40,6 +41,9 @@ function Home() {
                     />
                     <p className="image-caption">DaVinci Little Painter</p>
                 </div>
+                <footer>
+                    <ChatPopUp/>
+                </footer>
             </main>
         </div>
     );

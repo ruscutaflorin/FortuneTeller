@@ -3,26 +3,20 @@ import Input from "../../components/Input/Input";
 import Button from "../../components/Button/Button";
 import {useNavigate} from "react-router-dom";
 import noInputImage from "../../assets/pictor_no_input.png";
+import ChatPopUp from "../../components/ChatPopUp/ChatPopUp";
 
 function Painter() {
-    ////////////////////////////////////////////
-    //Creaza imaginea in care se va pune rezultatul
+
     const image = document.createElement("img");
     image.setAttribute("class", "resulted-image");
 
-    ////////////////////////////////////////////////
 
     async function createPainting(prompt) {
         const mainEl = document.getElementById("main");
 
-        //Call the api
-        ///////////////////////////////////////////////////////////////////////
         const apiBody = {
-            //prettier-ignore
             "prompt": "Create " + prompt + " as if it were drawn with acrylics",
-            //prettier-ignore
             "n": 1,
-            //prettier-ignore
             "size": "256x256",
         };
 
@@ -31,7 +25,6 @@ function Painter() {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
-                    //prettier-ignore
                     "Authorization": "Bearer " + process.env.REACT_APP_OPENAI_API_KEY,
                 },
                 body: JSON.stringify(apiBody),
@@ -48,9 +41,6 @@ function Painter() {
         } else {
             image.setAttribute("src", noInputImage);
         }
-        //////////////////////////////////////////////////////////////////////
-
-        //add it to the main section
         mainEl.appendChild(image);
     }
 
@@ -67,6 +57,7 @@ function Painter() {
                 handleResult={createPainting}
                 message={"What do you want me to draw today?"}
             ></Input>
+            <ChatPopUp/>
         </div>
     );
 }

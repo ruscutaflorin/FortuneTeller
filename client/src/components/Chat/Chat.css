@@ -4,10 +4,10 @@
     background-color: #f1f1f1;
     border-radius: 5px;
     overflow: hidden;
-    width: 300px;
-    height: 400px;
+    width: 250px;
+    height: 300px;
     position: fixed;
-    right: 50px;
+    right: 30px;
     bottom: 50px;
 }
 
@@ -15,7 +15,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #82EEFD;
+    background-color: lightslategray;
     color: #fff;
     padding: 10px;
     font-size: 18px;
@@ -29,6 +29,7 @@
 
 .chat-messages > div {
     margin-bottom: 10px;
+    word-wrap: break-word;
 }
 
 .chat form {
@@ -44,15 +45,16 @@
     padding: 10px;
     border: none;
     border-radius: 5px;
+    background-color: lightgrey;
 }
 
 .chat form button {
-    padding: 10px;
+    padding: 6px;
     background-color: #4CAF50;
     color: #fff;
     border: none;
     border-radius: 5px;
-    margin-left: 10px;
+    margin-left: 2px;
     cursor: pointer;
 }
 
@@ -73,4 +75,29 @@
 
 .close-button:hover {
     background-color: #ccc;
+}
+.close-button {
+    position: relative;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: #ccc;
+    color: #fff;
+    cursor: pointer;
+}
+
+.close-button::before,
+.close-button::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 12px;
+    background-color: #fff;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.close-button::after {
+    transform: translate(-50%, -50%) rotate(-45deg);
 }
